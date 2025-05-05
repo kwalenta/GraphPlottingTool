@@ -1,5 +1,7 @@
 # GraphPlottingTool
-An interactive Python tool to visualize results from power system optimization.
+An interactive Python tool for visualizing results from power system optimization.
+
+This tool uses example network data representing the ENTSO-E region, modeled as one node per zone. The dataset is derived from the PyPSA-Eur project, but all parameters and results are randomly generated and intended solely for visualization and demonstration purposes.
 
 ## Features
 - **Interactive Map Visualization**: Displays network data using Dash Leaflet, including power flow lines and nodes with pie chart visualizations.
