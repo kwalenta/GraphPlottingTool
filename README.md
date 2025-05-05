@@ -1,2 +1,2 @@
 # GraphPlottingTool
-An interactiive Python tool to visualize results from power system optimization
+An interactive Python tool to visualize results from power system optimization
