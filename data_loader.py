@@ -3,10 +3,32 @@ import sqlite3
 import pandas as pd
 import helper_functions as h  
 
-def get_data(obj, ):
+def get_data(obj) -> None:
     """
-    
+    Loads data from a SQLite database and processes it for further use.
+    Parameters:
+    obj : object
+        An object containing the necessary attributes for data loading and processing.
+        The object must have the following attributes:
+        - input_type (str): Specifies the type of input. Must be "sqlite" for this function.
+        - input_dir (str): The directory path where the SQLite database file is located.
+        - tables (list): A list of table names to be loaded from the database.
+        - bounds (list): A list that will store the computed geographical bounds.
+    Raises:
+    FileNotFoundError:
+        If the specified input directory does not exist.
+        If the SQLite database file ("data.sqlite") does not exist in the input directory.
+    Notes:
+    - This function connects to the SQLite database, retrieves the specified tables, 
+      and loads them into the object as attributes.
+    - The node ID column in the DataFrame `i` is set as the index.
+    - Geographical bounds are computed based on latitude (`lat`) and longitude (`lon`) columns 
+      in the DataFrame `i`.
+    Dependencies:
+    - Requires the `os`, `sqlite3`, and a helper module `h` with a function 
+      `extract_table_to_dataframe` for extracting tables into DataFrames.
     """
+ 
     self = obj
     if self.input_type == "sqlite":
         # check if the relative path exists
@@ -36,3 +58,6 @@ def get_data(obj, ):
         [max(self.i['lat']), max(self.i['lon'])]
     ]
 
+    # close the connection
+    conn.close()
+    return None
